@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure | droidcky.lol</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+        body {
+            background-color: #005a9c; 
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20%;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00E5FF;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        #download-btn {
+            background-color: #00E5FF;
+            color: #005a9c;
+            text-decoration: none;
+            padding: 15px 50px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        #download-btn:hover {
+            background-color: #ffffff;
+            color: #005a9c;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        #toggle-btn {
+            background-color: transparent;
+            color: #00E5FF;
+            border: 2px solid #00E5FF;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #toggle-btn:hover {
+            background-color: rgba(0, 229, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        #content {
+            max-width: 800px;
+            text-align: left;
+            margin-top: 40px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.8s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        #content.active {
+            max-height: 3000px;
+            opacity: 1;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #00E5FF;
+        }
+
+        .faq-item h3 {
+            color: #00E5FF;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        .faq-item p, .faq-item ul {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .faq-item ul {
+            padding-left: 20px;
+        }
+        
+        .highlight {
+            color: #00E5FF;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="logo.png" alt="Azure Logo">
+    </div>
+
+    <h1>Azure</h1>
+    <p style="color: #e0e0e0; font-size: 1.2rem; margin-top: 0;">The Next-Generation Android TAS Engine.</p>
+
+    <div class="button-container">
+        <a href="https://github.com/chxrcky-tool2" id="download-btn" target="_blank">Download .azr Bot</a>
+        <button id="toggle-btn">Reveal Engine Info</button>
+    </div>
+
+    <div id="content">
+        <div class="faq-item">
+            <h3>Powered by A.V.E.</h3>
+            <p>The <span class="highlight">Azure Velocity Engine</span> is a completely custom, frame-perfect replay system. It stores EVERY input, X/Y velocity, releases, and gameplay states (like <code>m_isholdingdash</code>) inside the <span class="highlight">.azr</span> format.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Azure Fixes & Checkpoints</h3>
+            <p>Featuring next-gen <span class="highlight">Azure Fixes</span> and Advanced Checkpoint Data. It tracks moving objects, gravity portals, and slope dashes, automatically redirecting inputs if you move or delete a checkpoint in practice mode.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why choose Azure?</h3>
+            <p>Because it's specifically built for Android64. No PC elitism, no paywalls, and no external FFmpeg dependencies. Just a beautiful, hand-coded Cocos UI with the most accurate velocity scanning ever seen on mobile.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is it free?</h3>
+            <p>Yes. 100% free, forever. Built by the Android community, for the Android community.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 droidcky.lol | Azure Engine. All rights reserved. Developed by Chxrcky.
+    </footer>
+
+    <script>
+        const btn = document.getElementById('toggle-btn');
+        const content = document.getElementById('content');
+
+        btn.addEventListener('click', () => {
+            content.classList.toggle('active');
+            if (content.classList.contains('active')) {
+                btn.textContent = 'Hide Engine Info';
+            } else {
+                btn.textContent = 'Reveal Engine Info';
+            }
+        });
+    </script>
+</body>
+  </html>
